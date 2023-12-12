@@ -1,0 +1,26 @@
+V3 15
+FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/counter_seconds.vhd 2022/07/28.18:03:21 P.20131013
+EN work/counter_seconds 1702047755 \
+      FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/counter_seconds.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/counter_seconds/behavioral 1702047756 \
+      FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/counter_seconds.vhd \
+      EN work/counter_seconds 1702047755
+FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/forca.vhdl 2023/12/08.13:02:14 P.20131013
+EN work/forca 1702047751 \
+      FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/forca.vhdl \
+      PB ieee/std_logic_1164 1381692176
+AR work/forca/hardware 1702047752 \
+      FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/forca.vhdl EN work/forca 1702047751
+FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/LCD.vhd 2023/12/08.12:54:13 P.20131013
+EN work/LCD 1702047753 FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/LCD.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/LCD/hardware 1702047754 \
+      FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/LCD.vhd EN work/LCD 1702047753
+FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/main.vhd 2023/12/08.11:25:58 P.20131013
+EN work/main 1702047757 \
+      FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/main.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/main/hardware 1702047758 \
+      FL /home/sd/Downloads/Sistemas-Digitais-Forca-main/main.vhd EN work/main 1702047757 \
+      CP forca CP LCD CP counter_seconds

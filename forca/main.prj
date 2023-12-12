@@ -1,0 +1,4 @@
+vhdl work "../../Downloads/Sistemas-Digitais-Forca-main/LCD.vhd"
+vhdl work "../../Downloads/Sistemas-Digitais-Forca-main/forca.vhdl"
+vhdl work "../../Downloads/Sistemas-Digitais-Forca-main/counter_seconds.vhd"
+vhdl work "../../Downloads/Sistemas-Digitais-Forca-main/main.vhd"

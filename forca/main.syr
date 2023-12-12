@@ -1,0 +1,729 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.07 secs
+ 
+--> 
+Reading design: main.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "main.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "main"
+Output Format                      : NGC
+Target Device                      : xc3s700an-5-fgg484
+
+---- Source Options
+Top Module Name                    : main
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/sd/Downloads/Sistemas-Digitais-Forca-main/forca.vhdl" in Library work.
+Entity <forca> compiled.
+Entity <forca> (Architecture <hardware>) compiled.
+Compiling vhdl file "/home/sd/Downloads/Sistemas-Digitais-Forca-main/LCD.vhd" in Library work.
+Architecture hardware of Entity lcd is up to date.
+Compiling vhdl file "/home/sd/Downloads/Sistemas-Digitais-Forca-main/counter_seconds.vhd" in Library work.
+Architecture behavioral of Entity counter_seconds is up to date.
+Compiling vhdl file "/home/sd/Downloads/Sistemas-Digitais-Forca-main/main.vhd" in Library work.
+Architecture hardware of Entity main is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <main> in library <work> (architecture <hardware>).
+
+Analyzing hierarchy for entity <forca> in library <work> (architecture <hardware>).
+
+Analyzing hierarchy for entity <LCD> in library <work> (architecture <hardware>) with generics.
+	fclk = 50000000
+
+Analyzing hierarchy for entity <counter_seconds> in library <work> (architecture <behavioral>) with generics.
+	t_max = 100000000
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <main> in library <work> (Architecture <hardware>).
+INFO:Xst:1739 - HDL ADVISOR - "/home/sd/Downloads/Sistemas-Digitais-Forca-main/main.vhd" line 11: declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output.
+INFO:Xst:1739 - HDL ADVISOR - "/home/sd/Downloads/Sistemas-Digitais-Forca-main/main.vhd" line 13: declaration of a buffer port will make it difficult for you to validate this design by simulation. It is preferable to declare it as output.
+Entity <main> analyzed. Unit <main> generated.
+
+Analyzing Entity <forca> in library <work> (Architecture <hardware>).
+WARNING:Xst:819 - "/home/sd/Downloads/Sistemas-Digitais-Forca-main/forca.vhdl" line 55: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <status>, <vida>, <user_guess>, <ultima_entrada>
+Entity <forca> analyzed. Unit <forca> generated.
+
+Analyzing generic Entity <LCD> in library <work> (Architecture <hardware>).
+	fclk = 50000000
+WARNING:Xst:819 - "/home/sd/Downloads/Sistemas-Digitais-Forca-main/LCD.vhd" line 52: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <revelado0>, <revelado1>, <revelado2>, <revelado3>, <revelado4>, <resultado>, <entrada>, <contador3>
+INFO:Xst:2679 - Register <RW> in unit <LCD> has a constant value of 0 during circuit operation. The register is replaced by logic.
+Entity <LCD> analyzed. Unit <LCD> generated.
+
+Analyzing generic Entity <counter_seconds> in library <work> (Architecture <behavioral>).
+	t_max = 100000000
+Entity <counter_seconds> analyzed. Unit <counter_seconds> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <forca>.
+    Related source file is "/home/sd/Downloads/Sistemas-Digitais-Forca-main/forca.vhdl".
+WARNING:Xst:647 - Input <CLOCK<7:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:1305 - Output <rev5> is never assigned. Tied to value 0000.
+WARNING:Xst:737 - Found 4-bit latch for signal <perdeu_ganhou>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 3-bit latch for signal <vida>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 4-bit latch for signal <revelado_numero0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 4-bit latch for signal <revelado_numero1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 4-bit latch for signal <revelado_numero2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 4-bit latch for signal <revelado_numero3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 4-bit latch for signal <revelado_numero4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <status_0>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <status_1>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <status_2>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <status_3>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 1-bit latch for signal <status_4>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 4-bit latch for signal <ultima_entrada>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 4-bit comparator not equal for signal <perdeu_ganhou$cmp_ne0001> created at line 141.
+    Summary:
+	inferred   1 Comparator(s).
+Unit <forca> synthesized.
+
+
+Synthesizing Unit <LCD>.
+    Related source file is "/home/sd/Downloads/Sistemas-Digitais-Forca-main/LCD.vhd".
+WARNING:Xst:647 - Input <contador<7:2>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <revelado5> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+INFO:Xst:1799 - State writedata7 is never reached in FSM <pr_state>.
+    Found finite state machine <FSM_0> for signal <pr_state>.
+    -----------------------------------------------------------------------
+    | States             | 34                                             |
+    | Transitions        | 34                                             |
+    | Inputs             | 0                                              |
+    | Outputs            | 34                                             |
+    | Clock              | E                         (rising_edge)        |
+    | Power Up State     | functionsetl                                   |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 1-bit latch for signal <RS>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 8-bit latch for signal <DB>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 1-bit register for signal <E>.
+    Found 16-bit up counter for signal <count>.
+    Found 16-bit adder for signal <count$addsub0000> created at line 34.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <LCD> synthesized.
+
+
+Synthesizing Unit <counter_seconds>.
+    Related source file is "/home/sd/Downloads/Sistemas-Digitais-Forca-main/counter_seconds.vhd".
+    Found 8-bit up counter for signal <counter_temp>.
+    Found 27-bit up counter for signal <slow_clock>.
+    Found 27-bit comparator lessequal for signal <slow_clock$cmp_le0000> created at line 22.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   1 Comparator(s).
+Unit <counter_seconds> synthesized.
+
+
+Synthesizing Unit <main>.
+    Related source file is "/home/sd/Downloads/Sistemas-Digitais-Forca-main/main.vhd".
+Unit <main> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 16-bit adder                                          : 1
+# Counters                                             : 3
+ 16-bit up counter                                     : 1
+ 27-bit up counter                                     : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 1
+ 1-bit register                                        : 1
+# Latches                                              : 15
+ 1-bit latch                                           : 6
+ 3-bit latch                                           : 1
+ 4-bit latch                                           : 7
+ 8-bit latch                                           : 1
+# Comparators                                          : 2
+ 27-bit comparator lessequal                           : 1
+ 4-bit comparator not equal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <LCD1/pr_state/FSM> on signal <pr_state[1:34]> with one-hot encoding.
+------------------------------------------------------
+ State          | Encoding
+------------------------------------------------------
+ functionsetl   | 0000000000000000000000000000000001
+ functionset2   | 0000000000000000000000000000000010
+ functionset3   | 0000000000000000000000000000000100
+ functionset4   | 0000000000000000000000000000001000
+ functionset5   | 0000000000000000000000000000010000
+ functionset6   | 0000000000000000000000000000100000
+ functionset7   | 0000000000000000000000000001000000
+ functionset8   | 0000000000000000000000000010000000
+ functionset9   | 0000000000000000000000000100000000
+ functionset10  | 0000000000000000000000001000000000
+ functionset11  | 0000000000000000000000010000000000
+ functionset12  | 0000000000000000000000100000000000
+ functionset13  | 0000000000000000000001000000000000
+ functionset14  | 0000000000000000000010000000000000
+ functionset15  | 0000000000000000000100000000000000
+ functionset16  | 0000000000000000001000000000000000
+ functionset17  | 0000000000000000010000000000000000
+ functionset18  | 0000000000000000100000000000000000
+ functionset19  | 0000000000000001000000000000000000
+ cleardisplay   | 0000000000000010000000000000000000
+ displaycontrol | 0000000000000100000000000000000000
+ entrymode      | 0000000000001000000000000000000000
+ writedatal     | 0000000000100000000000000000000000
+ writedata2     | 0000000001000000000000000000000000
+ writedata3     | 0000000010000000000000000000000000
+ writedata4     | 0000000100000000000000000000000000
+ writedata5     | 0000001000000000000000000000000000
+ writedata6     | 0000010000000000000000000000000000
+ writedata7     | unreached
+ writedata8     | 0000100000000000000000000000000000
+ writedata9     | 0001000000000000000000000000000000
+ writedata10    | 0100000000000000000000000000000000
+ setaddress     | 0010000000000000000000000000000000
+ setaddress1    | 0000000000010000000000000000000000
+ returnhome     | 1000000000000000000000000000000000
+------------------------------------------------------
+WARNING:Xst:1426 - The value init of the FF/Latch FFd34 hinder the constant cleaning in the block FSM.
+   You should achieve better results by setting this init to 0.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 1
+ 16-bit adder                                          : 1
+# Counters                                             : 3
+ 16-bit up counter                                     : 1
+ 27-bit up counter                                     : 1
+ 8-bit up counter                                      : 1
+# Registers                                            : 1
+ Flip-Flops                                            : 1
+# Latches                                              : 15
+ 1-bit latch                                           : 6
+ 3-bit latch                                           : 1
+ 4-bit latch                                           : 7
+ 8-bit latch                                           : 1
+# Comparators                                          : 2
+ 27-bit comparator lessequal                           : 1
+ 4-bit comparator not equal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1426 - The value init of the FF/Latch FSM_FFd34 hinder the constant cleaning in the block FSM_0-parent.
+   You should achieve better results by setting this init to 0.
+
+Optimizing unit <main> ...
+
+Optimizing unit <forca> ...
+WARNING:Xst:1293 - FF/Latch <perdeu_ganhou_2> has a constant value of 1 in block <forca>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <perdeu_ganhou_3> has a constant value of 1 in block <forca>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <revelado_numero1_0> has a constant value of 1 in block <forca>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <LCD> ...
+WARNING:Xst:2677 - Node <counter_seconds1/counter_temp_2> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <counter_seconds1/counter_temp_3> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <counter_seconds1/counter_temp_4> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <counter_seconds1/counter_temp_5> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <counter_seconds1/counter_temp_6> of sequential type is unconnected in block <main>.
+WARNING:Xst:2677 - Node <counter_seconds1/counter_temp_7> of sequential type is unconnected in block <main>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block main, actual ratio is 2.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 80
+ Flip-Flops                                            : 80
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : main.ngr
+Top Level Output File Name         : main
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 19
+
+Cell Usage :
+# BELS                             : 362
+#      GND                         : 1
+#      INV                         : 10
+#      LUT1                        : 61
+#      LUT2                        : 8
+#      LUT2_D                      : 1
+#      LUT3                        : 21
+#      LUT3_D                      : 5
+#      LUT4                        : 96
+#      LUT4_D                      : 5
+#      LUT4_L                      : 1
+#      MUXCY                       : 81
+#      MUXF5                       : 10
+#      VCC                         : 1
+#      XORCY                       : 61
+# FlipFlops/Latches                : 122
+#      FD                          : 33
+#      FDE                         : 3
+#      FDR                         : 43
+#      FDS                         : 1
+#      LD                          : 30
+#      LDE                         : 7
+#      LDE_1                       : 5
+# Clock Buffers                    : 3
+#      BUFG                        : 2
+#      BUFGP                       : 1
+# IO Buffers                       : 18
+#      IBUF                        : 4
+#      OBUF                        : 14
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s700anfgg484-5 
+
+ Number of Slices:                      114  out of   5888     1%  
+ Number of Slice Flip Flops:            113  out of  11776     0%  
+ Number of 4 input LUTs:                208  out of  11776     1%  
+ Number of IOs:                          19
+ Number of bonded IOBs:                  19  out of    372     5%  
+    IOB Flip Flops:                       9
+ Number of GCLKs:                         3  out of     24    12%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+------------------------------------------------+--------------------------------+-------+
+Clock Signal                                    | Clock buffer(FF name)          | Load  |
+------------------------------------------------+--------------------------------+-------+
+CLOCK_50                                        | BUFGP                          | 46    |
+forca1/tempo31(forca1/tempo31:O)                | BUFG(*)(forca1/perdeu_ganhou_1)| 28    |
+forca1/vida_cmp_eq0000(forca1/vida_cmp_eq0000:O)| NONE(*)(forca1/status_0)       | 5     |
+LCD1/RS_or0000(LCD1/RS_or000013_f5:O)           | NONE(*)(LCD1/DB_7)             | 9     |
+LCD1/E1                                         | BUFG                           | 34    |
+------------------------------------------------+--------------------------------+-------+
+(*) These 3 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 6.796ns (Maximum Frequency: 147.139MHz)
+   Minimum input arrival time before clock: 6.389ns
+   Maximum output required time after clock: 5.668ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLOCK_50'
+  Clock period: 6.796ns (frequency: 147.139MHz)
+  Total number of paths / destination ports: 3613 / 92
+-------------------------------------------------------------------------
+Delay:               6.796ns (Levels of Logic = 17)
+  Source:            LCD1/count_1 (FF)
+  Destination:       LCD1/count_15 (FF)
+  Source Clock:      CLOCK_50 rising
+  Destination Clock: CLOCK_50 rising
+
+  Data Path: LCD1/count_1 to LCD1/count_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.495   0.488  LCD1/count_1 (LCD1/count_1)
+     LUT1:I0->O            1   0.561   0.000  LCD1/Madd_count_addsub0000_cy<1>_rt (LCD1/Madd_count_addsub0000_cy<1>_rt)
+     MUXCY:S->O            1   0.523   0.000  LCD1/Madd_count_addsub0000_cy<1> (LCD1/Madd_count_addsub0000_cy<1>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<2> (LCD1/Madd_count_addsub0000_cy<2>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<3> (LCD1/Madd_count_addsub0000_cy<3>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<4> (LCD1/Madd_count_addsub0000_cy<4>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<5> (LCD1/Madd_count_addsub0000_cy<5>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<6> (LCD1/Madd_count_addsub0000_cy<6>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<7> (LCD1/Madd_count_addsub0000_cy<7>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<8> (LCD1/Madd_count_addsub0000_cy<8>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<9> (LCD1/Madd_count_addsub0000_cy<9>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<10> (LCD1/Madd_count_addsub0000_cy<10>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<11> (LCD1/Madd_count_addsub0000_cy<11>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<12> (LCD1/Madd_count_addsub0000_cy<12>)
+     MUXCY:CI->O           1   0.065   0.000  LCD1/Madd_count_addsub0000_cy<13> (LCD1/Madd_count_addsub0000_cy<13>)
+     XORCY:CI->O           1   0.654   0.380  LCD1/Madd_count_addsub0000_xor<14> (LCD1/count_addsub0000<14>)
+     LUT3:I2->O            1   0.561   0.465  LCD1/count_cmp_eq000062 (LCD1/count_cmp_eq000062)
+     LUT4:I0->O           17   0.561   0.893  LCD1/count_cmp_eq000075 (LCD1/count_cmp_eq0000)
+     FDR:R                     0.435          LCD1/count_0
+    ----------------------------------------
+    Total                      6.796ns (4.570ns logic, 2.226ns route)
+                                       (67.2% logic, 32.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'forca1/tempo31'
+  Clock period: 4.983ns (frequency: 200.680MHz)
+  Total number of paths / destination ports: 283 / 28
+-------------------------------------------------------------------------
+Delay:               4.983ns (Levels of Logic = 4)
+  Source:            forca1/vida_2 (LATCH)
+  Destination:       forca1/revelado_numero0_2 (LATCH)
+  Source Clock:      forca1/tempo31 falling
+  Destination Clock: forca1/tempo31 falling
+
+  Data Path: forca1/vida_2 to forca1/revelado_numero0_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE:G->Q              8   0.629   0.709  forca1/vida_2 (forca1/vida_2)
+     LUT3_D:I1->LO         1   0.562   0.123  forca1/revelado_numero1_mux0003<3>11 (N18)
+     LUT3:I2->O            6   0.561   0.592  forca1/revelado_numero0_mux0003<1>111 (forca1/N20)
+     LUT3_D:I2->O          2   0.561   0.488  forca1/revelado_numero0_mux0003<1>11 (forca1/N13)
+     LUT4:I0->O            1   0.561   0.000  forca1/revelado_numero0_mux0003<2>1 (forca1/revelado_numero0_mux0003<2>)
+     LD:D                      0.197          forca1/revelado_numero0_1
+    ----------------------------------------
+    Total                      4.983ns (3.071ns logic, 1.912ns route)
+                                       (61.6% logic, 38.4% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'forca1/vida_cmp_eq0000'
+  Clock period: 1.840ns (frequency: 543.375MHz)
+  Total number of paths / destination ports: 5 / 5
+-------------------------------------------------------------------------
+Delay:               1.840ns (Levels of Logic = 1)
+  Source:            forca1/status_2 (LATCH)
+  Destination:       forca1/status_2 (LATCH)
+  Source Clock:      forca1/vida_cmp_eq0000 rising
+  Destination Clock: forca1/vida_cmp_eq0000 rising
+
+  Data Path: forca1/status_2 to forca1/status_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE_1:G->Q            3   0.629   0.453  forca1/status_2 (forca1/status_2)
+     LUT4:I3->O            1   0.561   0.000  forca1/status_2_mux00031 (forca1/status_2_mux0003)
+     LDE_1:D                   0.197          forca1/status_2
+    ----------------------------------------
+    Total                      1.840ns (1.387ns logic, 0.453ns route)
+                                       (75.4% logic, 24.6% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'LCD1/E1'
+  Clock period: 1.442ns (frequency: 693.626MHz)
+  Total number of paths / destination ports: 34 / 34
+-------------------------------------------------------------------------
+Delay:               1.442ns (Levels of Logic = 0)
+  Source:            LCD1/pr_state_FSM_FFd4 (FF)
+  Destination:       LCD1/pr_state_FSM_FFd3 (FF)
+  Source Clock:      LCD1/E1 rising
+  Destination Clock: LCD1/E1 rising
+
+  Data Path: LCD1/pr_state_FSM_FFd4 to LCD1/pr_state_FSM_FFd3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              10   0.495   0.750  LCD1/pr_state_FSM_FFd4 (LCD1/pr_state_FSM_FFd4)
+     FD:D                      0.197          LCD1/pr_state_FSM_FFd3
+    ----------------------------------------
+    Total                      1.442ns (0.692ns logic, 0.750ns route)
+                                       (48.0% logic, 52.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'forca1/tempo31'
+  Total number of paths / destination ports: 408 / 28
+-------------------------------------------------------------------------
+Offset:              6.389ns (Levels of Logic = 6)
+  Source:            V_SW<1> (PAD)
+  Destination:       forca1/revelado_numero1_3 (LATCH)
+  Destination Clock: forca1/tempo31 falling
+
+  Data Path: V_SW<1> to forca1/revelado_numero1_3
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            19   0.824   1.030  V_SW_1_IBUF (V_SW_1_IBUF)
+     LUT4:I0->O            5   0.561   0.540  forca1/perdeu_ganhou_or00001 (forca1/perdeu_ganhou_or0000)
+     LUT4_D:I3->LO         1   0.561   0.102  forca1/revelado_numero1_mux0003<0>1111 (N21)
+     LUT4:I3->O            2   0.561   0.488  forca1/revelado_numero1_mux0003<0>111 (forca1/N8)
+     LUT4_D:I0->O          2   0.561   0.403  forca1/revelado_numero1_mux0003<0>12 (forca1/N2)
+     LUT4:I2->O            1   0.561   0.000  forca1/revelado_numero1_mux0003<2>1 (forca1/revelado_numero1_mux0003<2>)
+     LD:D                      0.197          forca1/revelado_numero1_1
+    ----------------------------------------
+    Total                      6.389ns (3.826ns logic, 2.563ns route)
+                                       (59.9% logic, 40.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'forca1/vida_cmp_eq0000'
+  Total number of paths / destination ports: 20 / 5
+-------------------------------------------------------------------------
+Offset:              3.693ns (Levels of Logic = 3)
+  Source:            V_SW<2> (PAD)
+  Destination:       forca1/status_0 (LATCH)
+  Destination Clock: forca1/vida_cmp_eq0000 rising
+
+  Data Path: V_SW<2> to forca1/status_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            14   0.824   0.958  V_SW_2_IBUF (V_SW_2_IBUF)
+     LUT3:I0->O            6   0.561   0.592  forca1/revelado_numero0_mux0003<1>111 (forca1/N20)
+     LUT4:I2->O            1   0.561   0.000  forca1/status_3_mux00031 (forca1/status_3_mux0003)
+     LDE_1:D                   0.197          forca1/status_3
+    ----------------------------------------
+    Total                      3.693ns (2.143ns logic, 1.550ns route)
+                                       (58.0% logic, 42.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'LCD1/RS_or0000'
+  Total number of paths / destination ports: 16 / 6
+-------------------------------------------------------------------------
+Offset:              3.961ns (Levels of Logic = 5)
+  Source:            V_SW<0> (PAD)
+  Destination:       LCD1/DB_0 (LATCH)
+  Destination Clock: LCD1/RS_or0000 falling
+
+  Data Path: V_SW<0> to LCD1/DB_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            17   0.824   1.001  V_SW_0_IBUF (V_SW_0_IBUF)
+     LUT4:I0->O            1   0.561   0.000  LCD1/DB_mux0000<0>1511 (LCD1/DB_mux0000<0>1511)
+     MUXF5:I1->O           1   0.229   0.359  LCD1/DB_mux0000<0>151_f5 (LCD1/DB_mux0000<0>151)
+     LUT4:I3->O            1   0.561   0.000  LCD1/DB_mux0000<0>1531 (LCD1/DB_mux0000<0>153)
+     MUXF5:I0->O           1   0.229   0.000  LCD1/DB_mux0000<0>153_f5 (LCD1/DB_mux0000<0>)
+     LD:D                      0.197          LCD1/DB_0
+    ----------------------------------------
+    Total                      3.961ns (2.601ns logic, 1.360ns route)
+                                       (65.7% logic, 34.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLOCK_50'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              5.342ns (Levels of Logic = 1)
+  Source:            LCD1/E (FF)
+  Destination:       E (PAD)
+  Source Clock:      CLOCK_50 rising
+
+  Data Path: LCD1/E to E
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              3   0.495   0.451  LCD1/E (LCD1/E1)
+     OBUF:I->O                 4.396          E_OBUF (E)
+    ----------------------------------------
+    Total                      5.342ns (4.891ns logic, 0.451ns route)
+                                       (91.6% logic, 8.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'LCD1/RS_or0000'
+  Total number of paths / destination ports: 9 / 9
+-------------------------------------------------------------------------
+Offset:              5.382ns (Levels of Logic = 1)
+  Source:            LCD1/RS (LATCH)
+  Destination:       RS (PAD)
+  Source Clock:      LCD1/RS_or0000 falling
+
+  Data Path: LCD1/RS to RS
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.629   0.357  LCD1/RS (LCD1/RS)
+     OBUF:I->O                 4.396          RS_OBUF (RS)
+    ----------------------------------------
+    Total                      5.382ns (5.025ns logic, 0.357ns route)
+                                       (93.4% logic, 6.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'forca1/tempo31'
+  Total number of paths / destination ports: 3 / 3
+-------------------------------------------------------------------------
+Offset:              5.668ns (Levels of Logic = 1)
+  Source:            forca1/vida_2 (LATCH)
+  Destination:       LED<2> (PAD)
+  Source Clock:      forca1/tempo31 falling
+
+  Data Path: forca1/vida_2 to LED<2>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE:G->Q              8   0.629   0.643  forca1/vida_2 (forca1/vida_2)
+     OBUF:I->O                 4.396          LED_2_OBUF (LED<2>)
+    ----------------------------------------
+    Total                      5.668ns (5.025ns logic, 0.643ns route)
+                                       (88.6% logic, 11.4% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.74 secs
+ 
+--> 
+
+
+Total memory usage is 626648 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   32 (   0 filtered)
+Number of infos    :    7 (   0 filtered)
+

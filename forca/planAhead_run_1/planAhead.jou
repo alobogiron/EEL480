@@ -1,0 +1,79 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Fri Dec  8 12:07:32 2023
+# Process ID: 4071
+# Log file: /home/sd/Documents/forca/planAhead_run_1/planAhead.log
+# Journal file: /home/sd/Documents/forca/planAhead_run_1/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/sd/Documents/forca/pa.fromHdl.tcl
+update_compile_order -fileset sim_1
+startgroup
+set_property package_pin E12 [get_ports CLOCK_50]
+endgroup
+startgroup
+set_property package_pin Y14 [get_ports RS]
+endgroup
+startgroup
+set_property package_pin W13 [get_ports RW]
+endgroup
+startgroup
+set_property package_pin AB4 [get_ports E]
+endgroup
+set_property iostandard LVCMOS33 [get_ports [list RW]]
+set_property iostandard LVCMOS33 [get_ports [list RS]]
+set_property iostandard LVCMOS33 [get_ports [list E]]
+set_property iostandard LVCMOS33 [get_ports [list CLOCK_50]]
+set_property iostandard LVCMOS33 [get_ports [list {LED[2]} {LED[1]} {LED[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {V_SW[3]} {V_SW[2]} {V_SW[1]} {V_SW[0]}]]
+set_property iostandard LVCMOS33 [get_ports [list {DB[7]} {DB[6]} {DB[5]} {DB[4]} {DB[3]} {DB[2]} {DB[1]} {DB[0]}]]
+startgroup
+set_property package_pin Y15 [get_ports {DB[7]}]
+endgroup
+startgroup
+set_property package_pin AB16 [get_ports {DB[6]}]
+endgroup
+startgroup
+set_property package_pin Y16 [get_ports {DB[5]}]
+endgroup
+startgroup
+set_property package_pin AA12 [get_ports {DB[4]}]
+endgroup
+startgroup
+set_property package_pin AB12 [get_ports {DB[3]}]
+endgroup
+startgroup
+set_property package_pin AB17 [get_ports {DB[2]}]
+endgroup
+startgroup
+set_property package_pin AB18 [get_ports {DB[1]}]
+endgroup
+startgroup
+set_property package_pin Y13 [get_ports {DB[0]}]
+endgroup
+startgroup
+set_property package_pin T9 [get_ports {V_SW[3]}]
+endgroup
+set_property package_pin "" [get_ports [list  {V_SW[1]}]]
+startgroup
+set_property package_pin U8 [get_ports {V_SW[2]}]
+endgroup
+startgroup
+set_property package_pin U10 [get_ports {V_SW[1]}]
+endgroup
+startgroup
+set_property package_pin V8 [get_ports {V_SW[0]}]
+endgroup
+startgroup
+set_property package_pin R20 [get_ports {LED[0]}]
+endgroup
+startgroup
+set_property package_pin T19 [get_ports {LED[1]}]
+endgroup
+startgroup
+set_property package_pin U20 [get_ports {LED[2]}]
+endgroup
+save_constraints
+write_vhdl /home/sd/Documents/forca/planAhead_run_1/main.vhd -mode port -force
+write_ucf /home/sd/Documents/forca/planAhead_run_1/elab_constrs_1.ucf -mode port

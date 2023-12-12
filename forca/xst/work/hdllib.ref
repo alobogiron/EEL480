@@ -1,0 +1,8 @@
+EN forca NULL /home/sd/Downloads/Sistemas-Digitais-Forca-main/forca.vhdl sub00/vhpl00 1702047751
+EN counter_seconds NULL /home/sd/Downloads/Sistemas-Digitais-Forca-main/counter_seconds.vhd sub00/vhpl04 1702047755
+EN lcd NULL /home/sd/Downloads/Sistemas-Digitais-Forca-main/LCD.vhd sub00/vhpl02 1702047753
+AR main hardware /home/sd/Downloads/Sistemas-Digitais-Forca-main/main.vhd sub00/vhpl07 1702047758
+EN main NULL /home/sd/Downloads/Sistemas-Digitais-Forca-main/main.vhd sub00/vhpl06 1702047757
+AR lcd hardware /home/sd/Downloads/Sistemas-Digitais-Forca-main/LCD.vhd sub00/vhpl03 1702047754
+AR forca hardware /home/sd/Downloads/Sistemas-Digitais-Forca-main/forca.vhdl sub00/vhpl01 1702047752
+AR counter_seconds behavioral /home/sd/Downloads/Sistemas-Digitais-Forca-main/counter_seconds.vhd sub00/vhpl05 1702047756
